@@ -1,0 +1,274 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  padding-top: 150px;
+  background-color: #555;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper {
+  width: 35%;
+  min-width: 400px;
+  padding: 15px;
+
+  background-color: #2c3333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #252525, 0 0 10px #252525, 0 0 15px #252525;
+}
+
+.createTodo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.todoText {
+  width: 100%;
+  padding: 8px 15px;
+  border-radius: 4px 0 0 0;
+  border: none;
+  background-color: #2a4349;
+  color: #1fd3a4;
+  font-size: 18px;
+  transition: 0.2s;
+}
+.todoText:focus-visible,
+.todoText:hover {
+  outline: none;
+  box-shadow: 0 0 3px #00ffb9, 0 0 6px #00ffb9;
+}
+.todoTextErr {
+  box-shadow: 0 0 3px #ff0c0c, 0 0 6px #ff0c0c;
+  background-color: #40646c;
+}
+.todoTextErr:hover,
+.todoTextErr:focus-visible {
+  box-shadow: 0 0 3px #ff0c0c, 0 0 6px #ff0c0c;
+}
+.todoTextErr::placeholder {
+  color: #35a88a;
+}
+.btn {
+  padding: 8px 30px;
+  border: none;
+  font-size: 18px;
+  background-color: #2a4349;
+  color: #00ffb9;
+  border-radius: 0 4px 0 0;
+  font-weight: 900;
+  transition: 0.3s;
+}
+.btn:hover,
+.btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 3px #00ffb9, 0 0 6px #00ffb9, 0 0 10px #00ffb9;
+  background-color: #007a5a;
+  color: #fff;
+  cursor: pointer;
+}
+.btnErr,
+.btnErr:hover,
+.btnErr:focus-visible {
+  outline: none;
+  box-shadow: 0 0 3px #ff0c0c, 0 0 6px #ff0c0c, 0 0 10px #ff0c0c !important;
+  background-color: #e50a0a !important;
+  color: #fff !important;
+}
+.btnErrShake {
+  position: relative;
+  animation: shake 0.2s linear;
+}
+@keyframes shake {
+  0%,
+  50%,
+  100% {
+    left: 0;
+  }
+  25% {
+    left: -5px;
+  }
+  75% {
+    left: 5px;
+  }
+}
+
+.todoList {
+  width: 100%;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.todoListItem {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  background-color: #2a4d56;
+}
+.todoListItem:last-child {
+  border-radius: 0 0 4px 4px;
+}
+.itemBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.itemText {
+  font-size: 17px;
+  letter-spacing: 0.8px;
+  color: #00ffb9;
+}
+.itemBtn div {
+  cursor: pointer;
+}
+.itemUpdate {
+  color: rgba(0, 255, 185, 0.7);
+}
+.itemDelete {
+  color: #ce0000;
+}
+
+/*modal*/
+
+.modal {
+  width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 150px;
+
+  display: none;
+}
+.layer {
+  width: 100%;
+  min-height: 100vh;
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(44, 44, 44, 0.8);
+}
+
+.modalTodoEdit {
+  position: relative;
+  width: 35%;
+  max-width: 500px;
+  padding: 15px;
+  background-color: #2c3333;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #252525, 0 0 10px #252525, 0 0 15px #252525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+.editTodoText {
+  width: 80%;
+  padding: 8px 15px;
+  border-radius: 4px 4px 0 0;
+  border: none;
+  background-color: #2a4349;
+  color: #1fd3a4;
+  font-size: 18px;
+}
+.editTodoText:focus-visible,
+.editTodoText:hover {
+  outline: none;
+  box-shadow: 0 0 3px #00ffb9, 0 0 6px #00ffb9;
+}
+.editBtn {
+  padding: 8px 30px;
+  border: none;
+  font-size: 18px;
+  background-color: #2a4349;
+  color: #00ffb9;
+  border-radius: 4px;
+}
+.editBtn:hover,
+.editBtn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 3px #00ffb9, 0 0 6px #00ffb9, 0 0 10px #00ffb9;
+  background-color: #007a5a;
+  color: #fff;
+  cursor: pointer;
+}
+.xBtn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  font-size: 10px;
+  color: #fff;
+  background-color: #e50a0a;
+  border-radius: 0 3px 0 0;
+  padding: 2px 5px;
+}
+.xBtn:hover {
+  cursor: pointer;
+  box-shadow: 0 0 2px #ff0c0c, 0 0 4px #ff0c0c;
+}
+
+.saveModal {
+  position: absolute;
+  width: 480px;
+  height: 150px;
+  left: 50%;
+  top: 150px;
+  transform: translateX(-50%);
+  /*display: flex;*/
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  background-color: #154139;
+  border-radius: 5px;
+  font-size: 20px;
+  color: #77ffe5;
+  display: none;
+}
+.saveModalBtns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.saveModalBtn {
+  width: 140px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background-color: #2f9583;
+  border-radius: 4px;
+  color: #fff;
+  border: none;
+  font-size: 18px;
+}
+
+.saveModalBtn:hover,
+.saveModalBtn:focus-visible {
+  outline: none;
+  background-color: #3bbba5;
+  box-shadow: 0 0 5px #3bbba5, 0 0 10px #00ffb9;
+  cursor: pointer;
+}
